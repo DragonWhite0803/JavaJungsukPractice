@@ -1,0 +1,10 @@
+package sh;
+
+public class JavaJungSuk {
+
+  public static void main(String[] args) {
+    char ch = 'Z';
+    boolean b = (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9');
+    System.out.println(b);
+  }
+}

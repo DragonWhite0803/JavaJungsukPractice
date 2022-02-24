@@ -1,0 +1,22 @@
+package sh;
+
+public class JavaJungSuk {
+  
+  public static void main(String[] args) {
+    
+    int x = 2;
+    int y = 5;
+    char c = 'A'; // 'A' 65 의 문자코드는
+    System.out.println(1 + x << 33);// 비트연산으로(비트연산은 덧셈보다 우선순위가 떨어지므로 덧셈을 먼저 한다) 3<<33은 3을 왼쪽으로 33만큼 움직여야 하지만 int가 32bit이므로 1번만 움직인다. 결국 3>>1로 변하고 2의 1제곱 이기 때문에 3*2 == 6이 된다.
+    System.out.println(y >= 5 || x < 0 && x > 2);// (y>=5) = true, (x<0 && x>2) false  ---- true || false == true 
+    System.out.println(y += 10 - x++);// y = y+10 이므로 15, x++은 후행연산자로 해당 라인에선 증가하지 않음 그러므로 답은 15-2=13
+    System.out.println(x+=2);// (x+=2) == (x = x+2) 답은 4!.. 여야 하지만 12번 라인에서 후행연산자를 사용했기 때문에 x는 2가 아니라 3으로 증가한 상태다. 결국 답은 5다.
+    System.out.println( !('A' <= c && c <='Z') );// !는 논리부정연산자다. 거짓이면 참을, 참이면 거짓을 내보낸다. 그러므로  ('A' <= c) == true 지만 논리부정으로 false 이고 and 연산으로 결국에 fasle가 된다.
+    System.out.println('C'-c);// C의 문자 코드가 67이므로 67-65 = 2
+    System.out.println('5'-'0');//5-0은 5다.
+    System.out.println(c+1);// A의 문자 코드가 65이므로 65+1= 66 
+    System.out.println(++c);// 문자의 코드가 선행연산자로 1 추가 되었으므로 B  (밑에 3문제와 동일하게 ++ 등의 단항연산자는 int보다 작더라도 형변환을 하지 않는다)
+    System.out.println(c++);// 후행연산자 사용으로 해당 라인은 변화없음
+    System.out.println(c);//19라인에서 후행연산자를 사용한 결과 1 증가 그러므로 답은 C
+  }
+}
