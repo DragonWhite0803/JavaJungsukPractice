@@ -18,7 +18,7 @@ public class Excercise4_14 {
 			} else {
 				System.out.print("더 큰 수를 입력하세요 :\n");
 			}
-		} while (input != answer); 
-		System.out.print(count + "번 만에 맞추셨습니다."); 
+		} while (input != answer);
+		System.out.print(count + "번 만에 맞추셨습니다.");
 	} // end of main
 }
