@@ -18,7 +18,7 @@ class Exercise9_6 {
 			String result = "";
 
 			for (int i = 0; i < cv.length; i++) {
-				cv[i] = 48; // 0은 문자코드 48
+				cv[i] = '0';
 			}
 			for (int i = 0; i < src.length(); i++) {
 				cv[length - src.length() + i] = src.charAt(i); // src값을 복사해서 넣어줌
