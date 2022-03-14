@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Iterator;
 
-class Student implements Comparator {
+class Student implements Comparable {
 	String name;
 	int ban;
 	int no;
@@ -30,12 +29,20 @@ class Student implements Comparator {
 		return name + "," + ban + "," + no + "," + kor + "," + eng + "," + math + "," + getTotal() + "," + getAverage();
 	}
 
+//	@Override
+//	public int compareTo(Student o) {
+//		return this.name.compareTo(o.name);
+//	} // 정렬기준 제공 -> 현재값과 다른 Student 객체와 비교
+
 	@Override
-	public int compare(Object o1, Object o2) {
-
-		return 0;
+	public int compareTo(Object o) {
+		if (o instanceof Student) {
+			Student tmp = (Student) o;
+			return name.compareTo(tmp.name);
+		} else {
+			return -1;
+		}
 	}
-
 }
 
 class Exercise11_5 {
