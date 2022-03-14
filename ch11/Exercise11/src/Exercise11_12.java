@@ -8,6 +8,7 @@ class Exercise11_12 {
 		Player p2 = new Player("°í¼ö", deck.pick(), deck.pick());
 		System.out.println(p1 + " " + deck.getPoint(p1));
 		System.out.println(p2 + " " + deck.getPoint(p2));
+
 	}
 }
 
@@ -27,7 +28,29 @@ class SutdaDeck {
 	}
 
 	void registerJokbo() {
-
+		jokbo.put("KK", 4000);
+		jokbo.put("1010", 310);
+		jokbo.put("99", 3100);
+		jokbo.put("88", 3080);
+		jokbo.put("77", 3070);
+		jokbo.put("66", 3060);
+		jokbo.put("55", 3050);
+		jokbo.put("44", 3040);
+		jokbo.put("33", 3030);
+		jokbo.put("22", 3020);
+		jokbo.put("11", 3010);
+		jokbo.put("12", 2060);
+		jokbo.put("21", 2060);
+		jokbo.put("14", 2050);
+		jokbo.put("41", 2050);
+		jokbo.put("19", 2040);
+		jokbo.put("91", 2040);
+		jokbo.put("110", 2030);
+		jokbo.put("101", 2030);
+		jokbo.put("410", 2020);
+		jokbo.put("104", 2020);
+		jokbo.put("46", 2010);
+		jokbo.put("64", 2010);
 	}
 
 	int getPoint(Player p) {
@@ -35,7 +58,16 @@ class SutdaDeck {
 			return 0;
 		SutdaCard2 c1 = p.c1;
 		SutdaCard2 c2 = p.c2;
+		String code = c1.num + "" + c2.num;
 		Integer result = 0;
+
+		if (c1.isKwang == true && c2.isKwang == true) {
+			result = (Integer) jokbo.get("KK");
+		} else if (jokbo.containsKey(code)) {
+			result = (Integer) jokbo.get(code);
+		} else {
+			result = (c1.num + c2.num) % 10 + 1000;
+		}
 
 		return result.intValue();
 	}
