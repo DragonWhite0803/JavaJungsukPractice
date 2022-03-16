@@ -1,17 +1,16 @@
 
 public class Exercise12_7 {
-//	[12-1] 클래스 Box가 다음과 같이 정의되어 있을 때, 다음 중 오류가 발생하는 문장은?
-//			경고가 발생하는 문장은?
+//	[12-7] 애너테이션 TestInfo가 다음과 같이 정의되어 있을 때, 이 애너테이션이 올바르게 적용되지 않은 것은? 
+//	
+//	@interface TestInfo {
+//		int count() default 1;
+//		String[] value() default "aaa";
+//	}
 
-//			class Box<T> { // T 지네릭 타입 를 선언
-//			T item;
-
-//			void setItem(T item) { this.item = item; }
-//			T getItem() { return item; }
-//			}
-
-//			a. Box<Object> b = new Box<String>(); -> 대입된 타입이 같아야 한다
-//			b. Box<Object> b = (Object)new Box<String>(); -> Box<Object> 타입과 <Object> 타입은 다르다.
-//			c. new Box<String>().setItem(new Object()); -> String 타입 객체 Box에는 Object 타입 객체를 setItem 할 수 없다.
-//			d. new Box<String>().setItem("ABC");
+//	a. @TestInfo 		class Exercise12_7 {}
+//	b. @TestInfo(1) 		class Exercise12_7 {}
+//	-> 요소의 이름이 value가 아닐 때는 요소의 이름을 생략할 수 없다 ->count = 1 O
+//	c. @TestInfo("bbb") 	class Exercise12_7 {}
+//	d. @TestInfo("bbb","ccc") class Exercise12_7 {}	-> 
+//	-> 요소의 값이 배열일 때는 괄호로 묶어주어야 한다. -> {"bbb","ccc"} O	
 }

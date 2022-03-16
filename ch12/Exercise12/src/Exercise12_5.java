@@ -1,7 +1,7 @@
 class Exercise12_5 {
 	public static void main(String args[]) {
 		Deck d = new Deck(); // 카드 한 벌(Deck)을 만든다.
-		Card c = d.pick(0); // 섞기 전에 제일 위의 카드를 뽑는다.
+		Card c = d.pick(0); // 섞기 전에 제일 위의 카드를 뽑는다. -> 섞기전엔 클로버 에이스가 항상 가장 위에있다
 		System.out.println(c); // System.out.println(c.toString());과 같다.
 		d.shuffle(); // 카드를 섞는다.
 		c = d.pick(0); // 섞은 후에 제일 위의 카드를 뽑는다.
@@ -11,10 +11,16 @@ class Exercise12_5 {
 
 class Deck {
 	final int CARD_NUM = Card.Kind.values().length * Card.Number.values().length; // 카드의 개수
-	Card cardArr[] = new Card[CARD_NUM]; // Card객체 배열을 포함
+	Card[] cardArr = new Card[CARD_NUM]; // Card객체 배열을 포함
 
 	Deck() {
-
+		int i = 0;
+		for (Card.Kind kind : Card.Kind.values()) { // 배열의 값들로 반복문을 돌리는 향상된 For문 구조이다
+			for (Card.Number num : Card.Number.values()) { // .values는 배열로서 열거형의 값들을 리턴한다.
+				cardArr[i] = new Card(kind, num);
+				i++;
+			}
+		}
 	}
 
 	Card pick(int index) { // 지정된 위치(index)에 있는 카드 하나를 꺼내서 반환
