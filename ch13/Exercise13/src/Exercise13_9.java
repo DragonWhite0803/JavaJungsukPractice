@@ -17,7 +17,8 @@ class Exercise13_9_1 extends Thread {
 			System.out.println(i--);
 			try {
 				Thread.sleep(1000); // 1초 지연
-			} catch (InterruptedException e) {
+			} catch (InterruptedException e) { // InterruptedException발생 -> 인터럽트 false로 자동 초기화
+				interrupt(); // 한번 더 인터럽트 해주어야 함
 			}
 		}
 		System.out.println("카운트가 종료되었습니다.");
